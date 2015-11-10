@@ -1,0 +1,34 @@
+{
+    "name": "angular-object-search",
+        "version": "1.0.0",
+        "homepage": "https://github.com/adrianhelvik/angular-object-search",
+        "description": "Filter for searching through objects, arrays and strings",
+        "main": [
+            "object-search.module.js",
+            "objectSearch.js",
+            "Query.js",
+            "QueryCollection.js",
+            "util.js"
+        ],
+        "moduleType": [],
+        "keywords": [
+            "AngularJS",
+        "filter",
+        "search",
+        "object",
+        "array",
+        "string",
+        "number"
+            ],
+        "authors": [
+            "Adrian Ødeby Helvik"
+            ],
+        "license": "MIT",
+        "ignore": [
+            "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+            ]
+}
