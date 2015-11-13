@@ -4,7 +4,7 @@
     "homepage": "https://github.com/adrianhelvik/angular-object-search",
     "description": "Filter for searching through objects, arrays and strings",
     "main": [
-        "objectSearch.js",
+        "objectSearch.js"
     ],
     "moduleType": [],
     "keywords": [
