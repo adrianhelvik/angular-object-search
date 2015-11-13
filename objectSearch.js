@@ -5,7 +5,7 @@
     angular.module( 'objectSearch' )
         .filter( 'objectSearch', searchProvider );
 
-    function util() {
+    var util = (function () {
         
         return {
             isQuoted: isQuoted,
@@ -40,7 +40,7 @@
         function isStringOrNumber( something ) {
             return angular.isString( something ) || angular.isNumber( something );
         }
-    }
+    })();
 
     function Query( original ) {
 
@@ -93,8 +93,11 @@
             self.queries = queries;
         } else if ( angular.isString( queries ) ) {
             self.queries = createQueries( queries );
+        } else if ( angular.isUndefined( queries ) ) {
+            console.log( 'Warning: queries in objectSearch was undefined' );
+            self.queries = [];
         } else {
-            throw new Error( 'Not a valid argument for constructor' );
+            throw new Error( queries + ' is not a valid argument for constructor' );
         }
 
         self.matches = function ( haystack ) {
@@ -103,6 +106,7 @@
             var i;
 
             for ( i = 0; i < self.queries.length; i++ ) {
+                
                 var query = self.queries[ i ];
                 matches[ i ] = false;
 
@@ -149,11 +153,21 @@
          * @param args.haystack object to search within
          * @param args.query string containing search queries. 
          */
-        function search( queries, haystack ) {
+        function search( haystack, needle ) {
 
-            var queryCollection = new QueryCollection( queries );
+            if ( ! needle ) {
+                return haystack;
+            }
 
-            var matches = queryCollection.matches( haystack );
+            var queryCollection = new QueryCollection( needle );
+
+            var matches = [];
+            
+            for (var i = 0; i < haystack.length; i++) {
+                if ( queryCollection.matches( haystack[ i ] ) ) {
+                    matches.push( haystack[ i ] );
+                }
+            }
 
             return matches;
         }
