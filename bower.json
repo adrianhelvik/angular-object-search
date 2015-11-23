@@ -1,6 +1,6 @@
 {
     "name": "angular-object-search",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "homepage": "https://github.com/adrianhelvik/angular-object-search",
     "description": "Filter for searching through objects, arrays and strings",
     "main": [

@@ -159,6 +159,10 @@
                 return haystack;
             }
 
+            if ( ! haystack ) {
+                return [];
+            }
+
             var queryCollection = new QueryCollection( needle );
 
             var matches = [];
